@@ -1,6 +1,5 @@
 package training.busboard;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -12,10 +11,9 @@ public class JSON2LL {
 	String JSONString;
 	String latitude;
 	String longitude;
-
+	ArrayList<String> out = new ArrayList<String>();
 	// ~Constructor
 	public JSON2LL (String JSONString) {
-		ArrayList<String> out = new ArrayList<String>();
 
 		this.JSONString = JSONString;
 		// Read JSON - IN THE CONSTRUCTOR
@@ -41,6 +39,7 @@ public class JSON2LL {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+     
 
 		System.out.println("loop done");
 
@@ -56,7 +55,7 @@ public class JSON2LL {
 	}
 
 	public String getLat() {
-		return latitude;
+		return this.out.get(1);
 	}
 	
 }

@@ -3,13 +3,6 @@ package training.busboard;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-
-import org.glassfish.jersey.jackson.JacksonFeature;
-
 public class Main {
 	public static void main(String args[]) {
 		// Sam's API ID is: c3b16dc7
@@ -24,7 +17,9 @@ public class Main {
 		String jsonpostcodedata = pcapi.PC2JSON(input);
 		System.out.println(jsonpostcodedata);
 
-		//Parse jsonpostcodedata to output String lat and String lon
+		JSON2LL parserone = new JSON2LL(jsonpostcodedata);
+		System.out.println(JSON2LL.getLat());
+		
 		String lat = "";
 		String lon = "";
 		//Parse jsonpostcodedata to output String lat and String lon
