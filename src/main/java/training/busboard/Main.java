@@ -18,7 +18,7 @@ public class Main {
 		System.out.println(jsonpostcodedata);
 
 		JSON2LL parserone = new JSON2LL(jsonpostcodedata);
-		System.out.println(JSON2LL.getLat());
+		System.out.println(parserone);
 		
 		String lat = "";
 		String lon = "";

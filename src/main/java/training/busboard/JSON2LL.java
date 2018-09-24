@@ -9,9 +9,9 @@ import com.google.gson.stream.JsonReader;
 public class JSON2LL {
 	
 	String JSONString;
-	String latitude;
-	String longitude;
-	ArrayList<String> out = new ArrayList<String>();
+	Double latitude;
+	Double longitude;
+	ArrayList<Double> out = new ArrayList<Double>();
 	// ~Constructor
 	public JSON2LL (String JSONString) {
 
@@ -24,12 +24,26 @@ public class JSON2LL {
 	        	String name = jsonReader.nextName(); 
 	        	if(name.equals("result")) {
 	        		jsonReader.beginObject();
-	        		if(name.equals("latitude")) {
-	        			this.latitude = jsonReader.nextString();
+	        		while(jsonReader.hasNext()) {
+	        			String name2 = jsonReader.nextName();
+	        			if(name2.equals("latitude")) {
+	        				//this.latitude = jsonReader.nextString();
+	        				this.latitude = jsonReader.nextDouble();
+	        				Double latt = this.latitude;
+
+	        			}
+	        			else if(name2.equals("longitude")) {
+	        				//this.longitude = jsonReader.nextString();
+	        				this.longitude = jsonReader.nextDouble();
+	        				Double longg = this.longitude;
+
+	        			}
+	        			else {
+	        				jsonReader.skipValue();
+	        			}
 	        		}
-	        		if(name.equals("longitude")) {
-	        			this.longitude = jsonReader.nextString();
-	        		}
+	        		
+	        			
 	        	}
 	        	else {
 	        		jsonReader.skipValue();
@@ -47,14 +61,15 @@ public class JSON2LL {
 
 
 
-		this.latitude = latitude;
-		this.longitude = longitude;
+//		this.latitude = latitude;
+//		this.longitude = longitude;
 		out.add(this.latitude);
 		out.add(this.longitude);
+		System.out.println("values added");
 		
 	}
 
-	public String getLat() {
+	public Double getLat() {
 		return this.out.get(1);
 	}
 	
