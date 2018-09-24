@@ -16,6 +16,7 @@ public class Main {
     	// Sam's API key is : 5293d7854df1ddc814d674a109060164
     	String apiid = "c3b16dc7";
     	String apikey = "5293d7854df1ddc814d674a109060164";
+    	String atco = "0180BAA01330";
     	
     	Scanner readline = new Scanner(System.in);  
     	System.out.println("Please enter an ATCO code for a bus stop:");
