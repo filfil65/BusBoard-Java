@@ -13,7 +13,7 @@ public class PCAPI {
 	{
 		Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
 		WebTarget webResource;
-		webResource = client.target("api.postcodes.io/postcodes/" + postCode);
+		webResource = client.target("http://api.postcodes.io/postcodes/" + postCode);
 		String response = webResource.request(MediaType.TEXT_PLAIN).get(String.class);
 		return response;
 	}
