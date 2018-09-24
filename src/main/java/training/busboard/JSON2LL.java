@@ -63,13 +63,17 @@ public class JSON2LL {
 
 //		this.latitude = latitude;
 //		this.longitude = longitude;
-		out.add(this.latitude);
-		out.add(this.longitude);
+		out.add(0,this.latitude);
+		out.add(1,this.longitude);
 		System.out.println("values added");
 		
 	}
 
 	public Double getLat() {
+		return this.out.get(0);
+	}
+	
+	public Double getLon() {
 		return this.out.get(1);
 	}
 	

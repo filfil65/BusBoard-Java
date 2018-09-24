@@ -20,9 +20,11 @@ public class Main {
 		JSON2LL parserone = new JSON2LL(jsonpostcodedata);
 		System.out.println(parserone);
 		
-		String lat = "51.389578";
-		String lon = "-2.339649";
+		String lat = Double.toString(parserone.getLat());
+		String lon = Double.toString(parserone.getLon());
 		//Parse jsonpostcodedata to output String lat and String lon
+		System.out.println("Lat is: " + lat);
+		System.out.println("Long is: " + lon);
 
 		LLAPI llapi = new LLAPI();
 		String jsonatcosdata = llapi.LL2JSON(lat, lon);
