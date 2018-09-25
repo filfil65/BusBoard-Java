@@ -30,43 +30,27 @@ public class JSON2LL {
 	        				//this.latitude = jsonReader.nextString();
 	        				this.latitude = jsonReader.nextDouble();
 	        				Double latt = this.latitude;
-
 	        			}
 	        			else if(name2.equals("longitude")) {
 	        				//this.longitude = jsonReader.nextString();
 	        				this.longitude = jsonReader.nextDouble();
 	        				Double longg = this.longitude;
-
 	        			}
 	        			else {
 	        				jsonReader.skipValue();
 	        			}
 	        		}
-	        		
-	        			
 	        	}
 	        	else {
 	        		jsonReader.skipValue();
 	        	}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-     
 
-//		System.out.println("loop done");
-
-
-
-
-
-//		this.latitude = latitude;
-//		this.longitude = longitude;
 		out.add(0,this.latitude);
-		out.add(1,this.longitude);
-//		System.out.println("values added");
-		
+		out.add(1,this.longitude);		
 	}
 
 	public Double getLat() {

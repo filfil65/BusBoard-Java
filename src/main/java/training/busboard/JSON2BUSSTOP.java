@@ -2,6 +2,7 @@ package training.busboard;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import com.google.gson.stream.JsonReader;
@@ -22,7 +23,7 @@ public class JSON2BUSSTOP {
 	BusStop busStop;
 	ArrayList<Bus> busList; 
 
-	public JSON2BUSSTOP(String JSONString) {
+	public JSON2BUSSTOP(String JSONString) throws ParseException {
 		this.busList = new ArrayList<Bus>();
 		// Read JSON - IN THE CONSTRUCTOR
 		JsonReader jsonReader = new JsonReader(new StringReader(JSONString));
