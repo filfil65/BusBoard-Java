@@ -18,6 +18,9 @@ public class Website {
 
     @RequestMapping("/busInfo")
     ModelAndView busInfo(@RequestParam("postcode") String postcode) {
+    	
+    	//
+    	
         return new ModelAndView("info", "busInfo", new BusInfo(postcode)) ;
     }
 
