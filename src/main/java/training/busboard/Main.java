@@ -42,11 +42,15 @@ public class Main {
 		for (int i=0; i<2 && i<atcos.size(); i++)
 		{
 			String jsonbusstopdata = atcoapi.atco2BusStop(atcos.get(i));
+			JSON2BUS busStop = new JSON2BUS(jsonbusstopdata);
 			//do some more jsonparsing here.
 			//store in a hashmap?
 //			BusStop outputfromtheparse = new BusStop();
 //			busStops.add(outputfromtheparse);
-			System.out.println(jsonbusstopdata + "\n");
+			//System.out.println(jsonbusstopdata + "\n");
+			System.out.println(busStop.getBusList().get(1).line_name);
+			System.out.println(busStop.getStopName());
+			System.out.println(busStop.getBearing());
 		}
 //
 		Bus threethreeone = new Bus("Hertford", "331", "12:18","11:58");
