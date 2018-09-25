@@ -20,18 +20,21 @@ public class JSON2ATCO {
 			jsonReader.beginObject();
 			while(jsonReader.hasNext()) {
 				String name = jsonReader.nextName();
-				if(name.equals("member")) {
+				if (name.equals("member")) {
 					jsonReader.beginArray();
-					jsonReader.beginObject();
-					while(jsonReader.hasNext()) {
-						name = jsonReader.nextName();
-						if(name.equals("atcocode")) {
-							this.atco = jsonReader.nextString();
-							this.atcoList.add(this.atco);
+					while(jsonReader.hasNext()){
+						jsonReader.beginObject();
+						while(jsonReader.hasNext()) {
+							String name2 = jsonReader.nextName();
+							if(name2.equals("atcocode")) {
+								this.atco = jsonReader.nextString();
+								this.atcoList.add(this.atco);
+							}
+							else {
+								jsonReader.skipValue();
+							}
 						}
-						else {
-							jsonReader.skipValue();
-						}
+						jsonReader.endObject();
 					}
 				}
 				else {
