@@ -7,29 +7,36 @@ import java.util.ArrayList;
 import com.google.gson.stream.JsonReader;
 
 public class JSON2ATCO {
+	String atco;
 	ArrayList<String> atcoList;
 	String JSONString;
 
 	public  JSON2ATCO (String JSONString){
+		this.atcoList = new ArrayList<String>();
 		this.JSONString = JSONString;
 		// Read JSON - IN THE CONSTRUCTOR
 		JsonReader jsonReader = new JsonReader(new StringReader(JSONString));
 		try {
 			jsonReader.beginObject();
-			String name = jsonReader.nextName();
-			if(name.equals("member")) {
-				jsonReader.beginArray();
-				jsonReader.beginObject();
-				String name2 = jsonReader.nextName();
-				if(name.equals("atcocode")) {
-					atcoList.add(jsonReader.nextString());
+			while(jsonReader.hasNext()) {
+				String name = jsonReader.nextName();
+				if(name.equals("member")) {
+					jsonReader.beginArray();
+					jsonReader.beginObject();
+					while(jsonReader.hasNext()) {
+						name = jsonReader.nextName();
+						if(name.equals("atcocode")) {
+							this.atco = jsonReader.nextString();
+							this.atcoList.add(this.atco);
+						}
+						else {
+							jsonReader.skipValue();
+						}
+					}
 				}
 				else {
 					jsonReader.skipValue();
 				}
-			}
-			else {
-				jsonReader.skipValue();
 			}
 
 		} catch (IOException e) {
