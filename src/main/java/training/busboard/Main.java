@@ -2,7 +2,10 @@ package training.busboard;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Main {
 	public static void main(String args[]) throws ParseException {
@@ -33,19 +36,24 @@ public class Main {
 		for (int i=0; i<2 && i<atcos.size(); i++)
 		{
 			String jsonbusstopdata = atcoapi.atco2BusStop(atcos.get(i));
-			
 			JSON2BUSSTOP busStop = new JSON2BUSSTOP(jsonbusstopdata);
-			
-			ArrayList<Bus> buslist = busStop.getBusList();
+			//Sorting the first two buses
+			HashMap<Long, Bus> busList = new HashMap<Long,Bus>();
+			for(Bus eachBus : busStop.getBusList()) {
+				busList.put(eachBus.longTime, eachBus)
+			}
+			SortedSet<Long> keys = new TreeSet<Long>(busList.keySet());
+
+			ArrayList<Bus> buslist = busStop.getBusList(); ////// THIS WILL BE MY NEW SORTED LIST
 			String ftext = "";
 			if (i==1)
 			{ ftext = "second";}
-			
 			System.out.println("\nThe " + ftext + " closest bus stop to you is: " + busStop.getStopName() + " " + busStop.getBearing() + ".\nThe next five buses to arrive there are:\n");
 
-			for (int j=0; j<5 && j<buslist.size(); j++)
+			//Sorting the first two buses
+			for (int j=0; j<5 && j<busList.size(); j++)
 			{
-				Bus bub = buslist.get(j);
+				Bus bub = busList.get(j);
 				bub.getInfo();
 				bub.getTTA();
 			}
