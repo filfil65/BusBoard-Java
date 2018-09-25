@@ -55,7 +55,7 @@ public class JSON2LL {
 		}
      
 
-		System.out.println("loop done");
+//		System.out.println("loop done");
 
 
 
@@ -65,7 +65,7 @@ public class JSON2LL {
 //		this.longitude = longitude;
 		out.add(0,this.latitude);
 		out.add(1,this.longitude);
-		System.out.println("values added");
+//		System.out.println("values added");
 		
 	}
 

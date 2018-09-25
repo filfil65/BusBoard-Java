@@ -1,9 +1,11 @@
 package training.busboard;
 
+import java.util.ArrayList;
+
 public class BusStop {
 	String atco;
 	String name;
+	String bearing;
 	String location;
-	int[] lines;
-	Bus[] incomingBuses;
+	ArrayList<Bus> incomingBuses = new ArrayList<Bus>();
 }
