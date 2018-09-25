@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import com.google.gson.stream.JsonReader;
 
-public class JSON2BUS {
+public class JSON2BUSSTOP {
 	//Bus Stop
 	String atcode;
 	String stopName;
@@ -22,7 +22,7 @@ public class JSON2BUS {
 	BusStop busStop;
 	ArrayList<Bus> busList; 
 
-	public JSON2BUS(String JSONString) {
+	public JSON2BUSSTOP(String JSONString) {
 		this.busList = new ArrayList<Bus>();
 		// Read JSON - IN THE CONSTRUCTOR
 		JsonReader jsonReader = new JsonReader(new StringReader(JSONString));
