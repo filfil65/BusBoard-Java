@@ -22,6 +22,7 @@ public class JSON2BUSSTOP {
 	Bus bus;
 	BusStop busStop;
 	ArrayList<Bus> busList; 
+	String reqTime;
 
 	public JSON2BUSSTOP(String JSONString) throws ParseException {
 		this.busList = new ArrayList<Bus>();
@@ -33,6 +34,9 @@ public class JSON2BUSSTOP {
 				String name = jsonReader.nextName();
 				if(name.equals("atcocode")) {
 					this.atcode = jsonReader.nextString();
+				}
+				else if(name.equals("request_time")){
+					this.reqTime = jsonReader.nextString();
 				}
 				else if(name.equals("stop_name")){
 					this.stopName = jsonReader.nextString();
@@ -96,5 +100,9 @@ public class JSON2BUSSTOP {
 	public String getBearing() {
 		return this.bearing;
 	}
-
+	public String getReqTime() {
+		return this.reqTime;
+	}
+	
+	
 }
