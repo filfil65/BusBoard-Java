@@ -1,6 +1,7 @@
 package training.busboard;
 
 public class Place {
-	Float latitude;
-	Float longitude;
+	String latitude;
+	String longitude;
+	String atco;
 }

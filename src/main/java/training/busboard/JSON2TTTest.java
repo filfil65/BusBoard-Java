@@ -15,7 +15,7 @@ public class JSON2TTTest {
         	String name = jsonReader.nextName();
         	System.out.println(name);
         }
-        	
+        jsonReader.close();	
         
 		
 	}
