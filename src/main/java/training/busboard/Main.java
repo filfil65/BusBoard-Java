@@ -2,7 +2,9 @@ package training.busboard;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -40,20 +42,28 @@ public class Main {
 			//Sorting the first two buses
 			HashMap<Long, Bus> busList = new HashMap<Long,Bus>();
 			for(Bus eachBus : busStop.getBusList()) {
-				busList.put(eachBus.longTime, eachBus)
+				busList.put(eachBus.longTime, eachBus);
 			}
 			SortedSet<Long> keys = new TreeSet<Long>(busList.keySet());
+			List<Long> list = new ArrayList<Long>(keys.size());
+			list.addAll(keys);
+			System.out.println("here");
 
-			ArrayList<Bus> buslist = busStop.getBusList(); ////// THIS WILL BE MY NEW SORTED LIST
+			ArrayList<Bus> fiveBuses = new ArrayList<Bus>();
+			for(int k=0; k<5; k++) {
+				fiveBuses.add(k,busList.get(list.get(k)));
+			}
+			//Collections.reverse(fiveBuses);
+			
 			String ftext = "";
 			if (i==1)
 			{ ftext = "second";}
 			System.out.println("\nThe " + ftext + " closest bus stop to you is: " + busStop.getStopName() + " " + busStop.getBearing() + ".\nThe next five buses to arrive there are:\n");
 
 			//Sorting the first two buses
-			for (int j=0; j<5 && j<busList.size(); j++)
+			for (int j=0; j<5 && j<fiveBuses.size(); j++)
 			{
-				Bus bub = busList.get(j);
+				Bus bub = fiveBuses.get(j);
 				bub.getInfo();
 				bub.getTTA();
 			}
