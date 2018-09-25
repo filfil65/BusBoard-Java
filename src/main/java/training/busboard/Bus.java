@@ -26,7 +26,7 @@ public class Bus {
 		Date date2 = format.parse(fuck);
 		long difference = date1.getTime() - date2.getTime();
 		String output = (new SimpleDateFormat("mm")).format(difference);
-		System.out.println("    Will arrive in " + output + " minute(s).");
+		System.out.println("Will arrive in " + output + " minute(s).");
 	}
 	
 	public void getInfo()

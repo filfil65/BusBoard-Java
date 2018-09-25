@@ -34,15 +34,14 @@ public class Main {
 		{
 			String jsonbusstopdata = atcoapi.atco2BusStop(atcos.get(i));
 			
-			JSON2BUSSTOP lastParse = new JSON2BUSSTOP(jsonbusstopdata);
-			BusStop busStop = lastParse.JSON2BUSSTOP;
+			JSON2BUSSTOP busStop = new JSON2BUSSTOP(jsonbusstopdata);
 			
-			ArrayList<Bus> buslist = busStop.incomingBuses;
+			ArrayList<Bus> buslist = busStop.getBusList();
 			String ftext = "";
 			if (i==1)
 			{ ftext = "second";}
 			
-			System.out.println("The " + ftext + " closest bus stop to you is: " + JSON2BUSSTOP.getName() + " " + JSON2BUSSTOP.getBearing() + ".\nThe next five buses to arrive there are:\n");
+			System.out.println("\nThe " + ftext + " closest bus stop to you is: " + busStop.getStopName() + " " + busStop.getBearing() + ".\nThe next five buses to arrive there are:\n");
 
 			for (int j=0; j<5 && j<buslist.size(); j++)
 			{
