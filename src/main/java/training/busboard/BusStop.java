@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import com.google.gson.stream.JsonReader;
 
@@ -102,6 +106,21 @@ public class BusStop {
 	public String getReqTime() {
 		return this.reqTime;
 	}
-	
+	public ArrayList<Bus> getNextFive() {
+		
+		HashMap<Long, Bus> busList = new HashMap<Long,Bus>();
+		for(Bus eachBus : this.busList) {
+			busList.put(eachBus.longTime, eachBus);
+		}
+		SortedSet<Long> keys = new TreeSet<Long>(busList.keySet());
+		List<Long> list = new ArrayList<Long>(keys.size());
+		list.addAll(keys);
+
+		ArrayList<Bus> fiveBuses = new ArrayList<Bus>();
+		for(int k=0; k<5 && k<keys.size(); k++) {
+			fiveBuses.add(k,busList.get(list.get(k)));
+		}	
+		return fiveBuses;
+	}
 	
 }
