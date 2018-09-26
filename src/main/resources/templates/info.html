@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      layout:decorate="layout"> 
 <head>
     <title>Bus Information</title>
 </head>
@@ -11,12 +11,17 @@
     <div>
         <p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
        	<div class ="row">
-       		<div class ="column">
-       			<p>The first closest bus stop is Bus stop one </p>
+       		<div class ="column is-two-fifths">
+       			<p>The first closest bus stop to you is: <span th:text="${busInfo.stopOne.stopName}"></span> <span th:text="${busInfo.stopOne.bearing}"></span>
+                <p>The next five buses to arrive there will be:</p>
+                    
+                </p>
        		</div>
-            <div class ="column"></div>
-       		<div class="column">
-       			<p>The second closest bus stop is Bus Stop two.</p>
+            <div class ="column is-one-fifth"><p></p></div>
+       		<div class="column is-two-fifths">
+       			<p>The second closest bus stop to you is: <span th:text="${busInfo.stopTwo.stopName}"></span> <span th:text="${busInfo.stopTwo.bearing}"></span>.
+                <p>The next five buses to arrive there will be:</p>
+                </p>
        		</div>
         </div>
     </div>

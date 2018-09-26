@@ -73,7 +73,7 @@ public class BusStop {
 									jsonReader.skipValue();
 								}
 							}
-							this.bus = new Bus(this.direction, this.line, this.eta, this.departureTime);
+							this.bus = new Bus(this.direction, this.line, this.eta, this.departureTime, this.reqTime);
 							this.busList.add(this.bus);
 							jsonReader.endObject();
 						}

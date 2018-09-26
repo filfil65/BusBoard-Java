@@ -2,7 +2,6 @@ package training.busboard;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
 	public static ArrayList<BusStop> main(String postcode) throws ParseException {
