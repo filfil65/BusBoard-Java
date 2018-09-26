@@ -13,6 +13,7 @@ public class Bus {
 	public String tta; //time till expected arrival
 	public Long longTime;  //Time in milliseconds between bus' arrival and 1st Jan 1970.
 	SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+
 	
 	public Bus(String direction, String line_name, String best_departure_estimate, String aimed_departure_time, String reqTime) throws ParseException
 	{

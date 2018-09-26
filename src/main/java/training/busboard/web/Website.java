@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import training.busboard.Bus;
 import training.busboard.BusStop;
 import training.busboard.Main;
 
@@ -26,15 +27,16 @@ public class Website {
     ModelAndView busInfo(@RequestParam("postcode") String postcode) throws ParseException {
     	
     	// TODO use postcode to get bus data from the Main
-    	Main samsMain = new Main();
-    	@SuppressWarnings("static-access")
-		ArrayList<BusStop> stops = samsMain.main(postcode);
+		ArrayList<BusStop> stops = Main.main(postcode);
+    	
     	BusStop stopOne = stops.get(0);
+    	ArrayList<Bus> stopOneBusses = stopOne.getNextFive();
+    	
     	BusStop stopTwo = stops.get(1);
-    	
-    	
-    	
-        return new ModelAndView("info", "busInfo", new BusInfo(postcode, stopOne, stopTwo)) ;
+    	ArrayList<Bus> stopTwoBusses = stopTwo.getNextFive();
+
+        return new ModelAndView("info", "busInfo", new BusInfo(postcode, stopOne, stopOneBusses, stopTwo, stopTwoBusses)) ;
+
     }
 
     public static void main(String[] args) throws Exception {

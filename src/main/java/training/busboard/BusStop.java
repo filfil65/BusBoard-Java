@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -112,7 +113,8 @@ public class BusStop {
 		for(Bus eachBus : this.busList) {
 			busList.put(eachBus.longTime, eachBus);
 		}
-		SortedSet<Long> keys = new TreeSet<Long>(busList.keySet());
+		Set<Long> busListKeys = busList.keySet();
+		SortedSet<Long> keys = new TreeSet<Long>(busListKeys);
 		List<Long> list = new ArrayList<Long>(keys.size());
 		list.addAll(keys);
 

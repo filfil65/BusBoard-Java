@@ -1,30 +1,80 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
-      layout:decorate="layout"> 
+<html>
+
 <head>
-    <title>Bus Information</title>
+	<title>Bus Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+</style>
 </head>
 <body>
-<div layout:fragment="content" class="container body-content">
-    <h2>Bus Information</h2>
-    <div>
-        <p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
-       	<div class ="row">
-       		<div class ="column is-two-fifths">
-       			<p>The first closest bus stop to you is: <span th:text="${busInfo.stopOne.stopName}"></span> <span th:text="${busInfo.stopOne.bearing}"></span>
-                <p>The next five buses to arrive there will be:</p>
-                    
-                </p>
-       		</div>
-            <div class ="column is-one-fifth"><p></p></div>
-       		<div class="column is-two-fifths">
-       			<p>The second closest bus stop to you is: <span th:text="${busInfo.stopTwo.stopName}"></span> <span th:text="${busInfo.stopTwo.bearing}"></span>.
-                <p>The next five buses to arrive there will be:</p>
-                </p>
-       		</div>
-        </div>
-    </div>
+
+<h2>Bus Information</h2>
+<div>
+	<p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
+
+	<div class="row">
+	  <div class="column" style="background-color:#81abc9"> 
+		<h2><span th:text="${busInfo.stopOne.stopName}"></span> Bus Stop - <span th:text="${busInfo.stopOne.bearing}"></span></h2>
+			<div class="row" style="background-color:#a2a5a1">
+				<table style="width:100%">
+					<tr>
+						<th <b>Line #</b></th>
+						<th <b>Destination</b></th>
+						<th <b>Arrival Time</b></th>
+						<th <b>Time To Arrival</b></th>
+					</tr>				
+					<th:block th:each="bus : ${busInfo.stopOneBusses}">
+						<tr>
+							<td th:text="${bus.line_name}"></td>
+							<td th:text="${bus.direction}"></td>
+							<td th:text="${bus.best_departure_estimate}"></td>
+							<td th:text="${bus.tta}"></td>
+						</tr>
+					</th:block>
+				</table>
+			</div>
+	  </div>
+	  <div class="column" style="background-color:#92c0e3">
+		<h2><span th:text="${busInfo.stopTwo.stopName}"></span> Bus Stop - <span th:text="${busInfo.stopTwo.bearing}"></span></h2>
+			<div class="row" style="background-color:#a2a5a1">
+				<p> hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
+			</div>
+	  </div>
+	</div>
+	
+	
+	</div>
 </div>
+
 </body>
 </html>
