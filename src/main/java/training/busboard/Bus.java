@@ -35,7 +35,7 @@ public class Bus {
 		Date date1 = format.parse(best_departure_estimate + ":00");
 		if (modifier.equals("01:00")) {
 			Date date2 = format.parse(formattedreqTime);
-			long difference = date1.getTime() - date2.getTime() - 3600000;
+			long difference = date1.getTime() - date2.getTime() - 3599940;
 			String output = (new SimpleDateFormat("HH:mm")).format(difference);
 			this.tta = output;
 		}
