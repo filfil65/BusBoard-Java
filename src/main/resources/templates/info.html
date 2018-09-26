@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Bus Information</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,6 +51,7 @@ table, th, td {
 						<th <b>Line #</b></th>
 						<th <b>Destination</b></th>
 						<th <b>Arrival Time</b></th>
+						<th <b>Time To Arrival</b></th>
 					</tr>				
 					<th:block th:each="bus : ${busInfo.stopOneBusses}">
 						<tr>

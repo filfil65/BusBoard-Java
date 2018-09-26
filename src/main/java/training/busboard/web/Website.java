@@ -27,16 +27,16 @@ public class Website {
     ModelAndView busInfo(@RequestParam("postcode") String postcode) throws ParseException {
     	
     	// TODO use postcode to get bus data from the Main
-    	Main samsMain = new Main();
-    	ArrayList<BusStop> stops = samsMain.main(postcode);
+		ArrayList<BusStop> stops = Main.main(postcode);
+    	
     	BusStop stopOne = stops.get(0);
-    	ArrayList<Bus> stopOneBusses = new ArrayList<Bus>();
-    	stopOneBusses = stopOne.getNextFive();
+    	ArrayList<Bus> stopOneBusses = stopOne.getNextFive();
+    	
     	BusStop stopTwo = stops.get(1);
-    	ArrayList<Bus> stopTwoBusses = new ArrayList<Bus>();
-    	stopTwoBusses = stopTwo.getNextFive();
+    	ArrayList<Bus> stopTwoBusses = stopTwo.getNextFive();
 
         return new ModelAndView("info", "busInfo", new BusInfo(postcode, stopOne, stopOneBusses, stopTwo, stopTwoBusses)) ;
+
     }
 
     public static void main(String[] args) throws Exception {
