@@ -14,7 +14,7 @@
     float: left;
     width: 50%;
     padding: 10px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    /* height: 300px; Should be removed. Only for demonstration */
 }
 
 /* Clear floats after the columns */
@@ -34,18 +34,20 @@ table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(odd) {background-color: #92c0e3;}
 </style>
 </head>
 <body>
 
 <h2>Bus Information</h2>
 <div>
-	<p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
+	<p>You entered postcode: <span th:text="${busInfo.postcode}"></span></p>
 
 	<div class="row">
-	  <div class="column" style="background-color:#81abc9"> 
-		<h2><span th:text="${busInfo.stopOne.stopName}"></span> Bus Stop - <span th:text="${busInfo.stopOne.bearing}"></span></h2>
-			<div class="row" style="background-color:#a2a5a1">
+	  <div class="column"> 
+		<h2><span th:text="${busInfo.stopOne.stopName}"></span> Bus Stop - <span th:text="${busInfo.stopOne.bearing}"></span> align="center"</h2>
+			<div class="row">
 				<table style="width:100%">
 					<tr>
 						<th <b>Line #</b></th>
@@ -64,10 +66,25 @@ table, th, td {
 				</table>
 			</div>
 	  </div>
-	  <div class="column" style="background-color:#92c0e3">
-		<h2><span th:text="${busInfo.stopTwo.stopName}"></span> Bus Stop - <span th:text="${busInfo.stopTwo.bearing}"></span></h2>
-			<div class="row" style="background-color:#a2a5a1">
-				<p> hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</p>
+	  <div class="column">
+		<h2><span th:text="${busInfo.stopTwo.stopName}"></span> Bus Stop - <span th:text="${busInfo.stopTwo.bearing}"></span>align="center"</h2>
+			<div class="row">
+				<table style="width:100%">
+					<tr>
+						<th <b>Line #</b></th>
+						<th <b>Destination</b></th>
+						<th <b>Arrival Time</b></th>
+						<th <b>Time To Arrival</b></th>
+					</tr>				
+					<th:block th:each="bus : ${busInfo.stopTwoBusses}">
+						<tr>
+							<td th:text="${bus.line_name}"></td>
+							<td th:text="${bus.direction}"></td>
+							<td th:text="${bus.best_departure_estimate}"></td>
+							<td th:text="${bus.tta}"></td>
+						</tr>
+					</th:block>
+				</table>
 			</div>
 	  </div>
 	</div>
