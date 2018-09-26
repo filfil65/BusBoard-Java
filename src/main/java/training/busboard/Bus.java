@@ -21,19 +21,21 @@ public class Bus {
 		this.best_departure_estimate = best_departure_estimate;
 		this.aimed_departure_time = aimed_departure_time;
 		
-//		Date date = format.parse(best_departure_estimate + ":00");
-//		this.longTime = date.getTime();
+		Date date = format.parse(best_departure_estimate + ":00");
+		this.longTime = date.getTime();
 		
-		Pattern pattern = Pattern.compile(".*([0-9][0-9]:[0-9][0-9]:[0-9][0-9])\\+");
+		Pattern pattern = Pattern.compile(".*([0-9][0-9]:[0-9][0-9]:[0-9][0-9])\\+([0-9][0-9]:[0-9][0-9])");
 		Matcher matcher = pattern.matcher(reqTime);
 		matcher.find();
 		String formattedreqTime = matcher.group(1);
+		String modifier = matcher.group(2);
 		
 		SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 		Date date1 = format.parse(best_departure_estimate + ":00");
+		Date modifiedTime = format.parse(modifier + ":00");
 //		String fuck = new SimpleDateFormat("HH:mm:ss").format(formattedreqTime);
 		Date date2 = format.parse(formattedreqTime);
-		long difference = date1.getTime() - date2.getTime();
+		long difference = date1.getTime() - date2.getTime() - modifiedTime.getTime();
 		String output = (new SimpleDateFormat("HH:mm")).format(difference);
 		this.tta = output;
 		
