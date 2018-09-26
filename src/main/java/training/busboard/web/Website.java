@@ -30,10 +30,13 @@ public class Website {
     	Main samsMain = new Main();
     	ArrayList<BusStop> stops = samsMain.main(postcode);
     	BusStop stopOne = stops.get(0);
+    	ArrayList<Bus> stopOneBusses = new ArrayList<Bus>();
+    	stopOneBusses = stopOne.getNextFive();
     	BusStop stopTwo = stops.get(1);
-    	
-    	
-        return new ModelAndView("info", "busInfo", new BusInfo(postcode, stopOne, stopTwo)) ;
+    	ArrayList<Bus> stopTwoBusses = new ArrayList<Bus>();
+    	stopTwoBusses = stopTwo.getNextFive();
+
+        return new ModelAndView("info", "busInfo", new BusInfo(postcode, stopOne, stopOneBusses, stopTwo, stopTwoBusses)) ;
     }
 
     public static void main(String[] args) throws Exception {

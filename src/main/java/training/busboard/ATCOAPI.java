@@ -9,8 +9,10 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 
 public class ATCOAPI {
 	
-	String apiid = "c3b16dc7";
-	String apikey = "5293d7854df1ddc814d674a109060164";
+	//String apiid = "c3b16dc7";
+	String apiid = "03c679b7";
+	//String apikey = "5293d7854df1ddc814d674a109060164";
+	String apikey = "417816b29b511bc8acef8fb7124a571c";
 	
 	public String atco2BusStop(String atco) {
 		
