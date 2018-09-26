@@ -6,12 +6,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Bus {
-	String direction;
-	String line_name;
-	String best_departure_estimate;
-	String aimed_departure_time;
-	String tta; //time till expected arrival
-	Long longTime;  //Time in milliseconds between bus' arrival and 1st Jan 1970.
+	public String direction;
+	public String line_name;
+	public String best_departure_estimate;
+	public String aimed_departure_time;
+	public String tta; //time till expected arrival
+	public Long longTime;  //Time in milliseconds between bus' arrival and 1st Jan 1970.
 	SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 	
 	public Bus(String direction, String line_name, String best_departure_estimate, String aimed_departure_time, String reqTime) throws ParseException
