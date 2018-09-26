@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String args[]) throws ParseException {
+	public static ArrayList<BusStop> main(String postcode) throws ParseException {
 		// Sam's API ID is: c3b16dc7
 		// Sam's API key is : 5293d7854df1ddc814d674a109060164
 
-		Scanner readline = new Scanner(System.in);  
-		System.out.println("Please enter a Post Code:");
-		String input = readline.nextLine(); 
-		readline.close();
+		//		Scanner readline = new Scanner(System.in);  
+		//		System.out.println("Please enter a Post Code:");
+		//		String input = readline.nextLine(); 
+		//		readline.close();
 
 		PCAPI postCodeApi = new PCAPI();
-		String jsonPostCodeData = postCodeApi.PC2JSON(input);
+		String jsonPostCodeData = postCodeApi.PC2JSON(postcode);
 
 		JSON2LL parserone = new JSON2LL(jsonPostCodeData);
 
@@ -38,6 +38,7 @@ public class Main {
 		ArrayList<BusStop> out = new ArrayList<BusStop>();
 		out.add(busStop1);
 		out.add(busStop2);
+		return out;
 
 
 

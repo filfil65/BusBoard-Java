@@ -10,6 +10,13 @@
     <h2>Bus Information</h2>
     <div>
         <p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
+       	<div class ="row">
+       		<th:block th:each="BusStop : ${busInfo.stops}">
+       			<div class ="column">
+       			<p>The first bus stop is <span th:text="${busInfo.stops.BusStop.stopName}><\p>
+       			<\div>
+       		<\th:block>
+        <\div>
     </div>
 </div>
 </body>
