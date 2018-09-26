@@ -14,7 +14,7 @@ import com.google.gson.stream.JsonReader;
 public class BusStop {
 	//Bus Stop
 	String atcode;
-	String stopName;
+	public String stopName;
 	//private String location;
 	String bearing;
 	//Bus

@@ -11,12 +11,14 @@
     <div>
         <p>You entered postcode <span th:text="${busInfo.postcode}"></span></p>
        	<div class ="row">
-       		<th:block th:each="BusStop : ${busInfo.stops}">
-       			<div class ="column">
-       			<p>The first bus stop is <span th:text="${busInfo.stops.BusStop.stopName}><\p>
-       			<\div>
-       		<\th:block>
-        <\div>
+       		<div class ="column">
+       			<p>The first closest bus stop is Bus stop one </p>
+       		</div>
+            <div class ="column"></div>
+       		<div class="column">
+       			<p>The second closest bus stop is Bus Stop two.</p>
+       		</div>
+        </div>
     </div>
 </div>
 </body>

@@ -1,16 +1,16 @@
 package training.busboard.web;
 
-import java.util.ArrayList;
-
 import training.busboard.BusStop;
 
 public class BusInfo {
     private final String postcode;
-    public ArrayList<BusStop> stops;
+    public BusStop stopOne;
+    public BusStop stopTwo;
 
-    public BusInfo(String postcode, ArrayList<BusStop> stops) {
+    public BusInfo(String postcode, BusStop stopOne, BusStop stopTwo) {
         this.postcode = postcode;
-        this.stops = stops;
+        this.stopOne = stopOne;
+        this.stopTwo = stopTwo;
     }
 
     public String getPostcode() {
